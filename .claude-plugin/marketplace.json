@@ -10,6 +10,11 @@
       "name": "commit-pt",
       "source": "./commit-pt",
       "description": "Commits em português no formato Conventional Commits"
+    },
+    {
+      "name": "skill-bench",
+      "source": "./skill-bench",
+      "description": "Benchmark A/B de skills: qualidade de código, tokens, custo e tempo, com ranking visual"
     }
   ]
 }

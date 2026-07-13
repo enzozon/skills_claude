@@ -1,0 +1,13 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "skill-bench",
+  "version": "0.1.0",
+  "description": "Benchmark A/B de skills do Claude Code: mede impacto em qualidade de código, tokens, custo e tempo, e gera ranking visual",
+  "author": {
+    "name": "Enzo Zon",
+    "email": "enzozon7b@gmail.com"
+  },
+  "skills": [
+    "./"
+  ]
+}
