@@ -1,0 +1,13 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "commit-pt",
+  "version": "0.1.0",
+  "description": "Commits em português no formato Conventional Commits",
+  "author": {
+    "name": "Enzo Zon",
+    "email": "enzozon7b@gmail.com"
+  },
+  "skills": [
+    "./"
+  ]
+}

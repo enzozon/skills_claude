@@ -2,18 +2,21 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Estado atual
+## O que é este repositório
 
-Este diretório é um workspace recém-criado e ainda não contém código. Não é um repositório git.
+Marketplace pessoal de plugins/skills do Claude Code (`skills-claude`), publicado em github.com/enzozon. Estrutura:
 
-A julgar pelo nome (`skills_claude`), o propósito é experimentar e desenvolver skills/plugins para o Claude Code. Plugins instalados pelo usuário (ponytail, claude-mem, obsidian-second-brain) ficam no escopo de usuário (`~/.claude`), não neste diretório.
+- `.claude-plugin/marketplace.json` — manifesto do marketplace; toda skill nova precisa de uma entrada em `plugins[]`
+- `commit-pt/` — skill que gera commits em pt-BR no formato Conventional Commits (`plugin.json` + `SKILL.md`)
 
-## Quando houver código
+## Comandos
 
-Este arquivo foi gerado com o diretório vazio. Assim que o projeto tiver estrutura real (código, build, testes), rode `/init` novamente para substituí-lo por documentação de verdade — não mantenha este placeholder.
+- Validar marketplace e skills: `claude plugin validate .` (rodar antes de todo commit)
+- Validar uma skill isolada: `claude plugin validate ./commit-pt`
+- Instalar localmente para teste: `/plugin marketplace add enzozon/skills_claude` e `/plugin install commit-pt@skills-claude`
 
-## Notas úteis
+## Convenções
 
-- Para criar uma skill local: `claude plugin init <nome>` cria o esqueleto em `~/.claude/skills/<nome>/` e ela carrega automaticamente na próxima sessão.
-- Para validar um plugin/marketplace deste diretório: `claude plugin validate <caminho>`.
-- Idioma preferido do usuário: português (respostas e explicações em pt-BR).
+- Commits seguem a própria skill commit-pt: Conventional Commits com mensagem em português
+- Cada skill vive em sua própria pasta na raiz, com `.claude-plugin/plugin.json` e `SKILL.md`
+- Idioma preferido do usuário: português (respostas e explicações em pt-BR)

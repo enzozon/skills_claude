@@ -1,0 +1,15 @@
+{
+  "name": "skills-claude",
+  "description": "Skills pessoais do Enzo para Claude Code",
+  "owner": {
+    "name": "Enzo Zon",
+    "email": "enzozon7b@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "commit-pt",
+      "source": "./commit-pt",
+      "description": "Commits em português no formato Conventional Commits"
+    }
+  ]
+}
