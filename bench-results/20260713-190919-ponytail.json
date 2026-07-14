@@ -1,0 +1,57 @@
+{
+  "timestamp": "20260713-190919",
+  "plugin": "ponytail@ponytail",
+  "model": "sonnet",
+  "judge_model": "haiku",
+  "runs_per_arm_per_task": 2,
+  "tasks": ["01-cache", "02-dedup", "03-retry"],
+  "note_metodologica": "N=2 por braço por tarefa — direcional, não conclusivo. Juiz avaliou apenas arquivos .py; a nota 6 de correctness na tarefa 02 ocorreu igualmente nos dois braços (dados.csv criado fora do .py), não afetando a comparação. Custo maior no tratamento vem do prompt do plugin (~2.6k tokens de input a mais por sessão).",
+  "runs": [
+    {"arm": "baseline", "task": "01-cache", "run": "run1", "cost_usd": 0.0975, "output_tokens": 796, "duration_s": 15.9, "num_turns": 3, "check": "PASS", "loc": 33, "judge": {"correctness": 10, "simplicity": 9, "readability": 10}},
+    {"arm": "baseline", "task": "01-cache", "run": "run2", "cost_usd": 0.0972, "output_tokens": 802, "duration_s": 11.9, "num_turns": 3, "check": "PASS", "loc": 33, "judge": {"correctness": 10, "simplicity": 10, "readability": 10}},
+    {"arm": "baseline", "task": "02-dedup", "run": "run1", "cost_usd": 0.1342, "output_tokens": 1641, "duration_s": 26.3, "num_turns": 5, "check": "PASS", "loc": 52, "judge": {"correctness": 6, "simplicity": 9, "readability": 9}},
+    {"arm": "baseline", "task": "02-dedup", "run": "run2", "cost_usd": 0.1442, "output_tokens": 1719, "duration_s": 27.6, "num_turns": 6, "check": "PASS", "loc": 41, "judge": {"correctness": 6, "simplicity": 9, "readability": 9}},
+    {"arm": "baseline", "task": "03-retry", "run": "run1", "cost_usd": 0.1049, "output_tokens": 1161, "duration_s": 13.8, "num_turns": 3, "check": "PASS", "loc": 32, "judge": {"correctness": 10, "simplicity": 9, "readability": 10}},
+    {"arm": "baseline", "task": "03-retry", "run": "run2", "cost_usd": 0.0991, "output_tokens": 890, "duration_s": 13.1, "num_turns": 3, "check": "PASS", "loc": 38, "judge": {"correctness": 10, "simplicity": 10, "readability": 10}},
+    {"arm": "treatment", "task": "01-cache", "run": "run1", "cost_usd": 0.1122, "output_tokens": 643, "duration_s": 10.0, "num_turns": 3, "check": "PASS", "loc": 22, "judge": {"correctness": 10, "simplicity": 10, "readability": 10}},
+    {"arm": "treatment", "task": "01-cache", "run": "run2", "cost_usd": 0.1094, "output_tokens": 511, "duration_s": 9.4, "num_turns": 3, "check": "PASS", "loc": 21, "judge": {"correctness": 10, "simplicity": 10, "readability": 10}},
+    {"arm": "treatment", "task": "02-dedup", "run": "run1", "cost_usd": 0.1271, "output_tokens": 1323, "duration_s": 16.3, "num_turns": 4, "check": "PASS", "loc": 32, "judge": {"correctness": 6, "simplicity": 9, "readability": 9}},
+    {"arm": "treatment", "task": "02-dedup", "run": "run2", "cost_usd": 0.1282, "output_tokens": 1357, "duration_s": 18.5, "num_turns": 4, "check": "PASS", "loc": 36, "judge": {"correctness": 6, "simplicity": 9, "readability": 8}},
+    {"arm": "treatment", "task": "03-retry", "run": "run1", "cost_usd": 0.1112, "output_tokens": 601, "duration_s": 10.5, "num_turns": 3, "check": "PASS", "loc": 28, "judge": {"correctness": 10, "simplicity": 9, "readability": 8}},
+    {"arm": "treatment", "task": "03-retry", "run": "run2", "cost_usd": 0.1181, "output_tokens": 913, "duration_s": 11.9, "num_turns": 3, "check": "PASS", "loc": 31, "judge": {"correctness": 10, "simplicity": 9, "readability": 9}}
+  ],
+  "arms": {
+    "baseline": {
+      "cost_usd_total": 0.677,
+      "output_tokens_median": 1025.5,
+      "duration_s_median": 14.85,
+      "loc_median": 35.5,
+      "num_turns_median": 3,
+      "check_pass_rate": 1.0,
+      "judge_correctness_median": 10,
+      "judge_simplicity_median": 9,
+      "judge_readability_median": 10
+    },
+    "treatment": {
+      "cost_usd_total": 0.706,
+      "output_tokens_median": 778,
+      "duration_s_median": 11.2,
+      "loc_median": 29.5,
+      "num_turns_median": 3,
+      "check_pass_rate": 1.0,
+      "judge_correctness_median": 10,
+      "judge_simplicity_median": 9,
+      "judge_readability_median": 9
+    }
+  },
+  "delta_treatment_vs_baseline": {
+    "output_tokens_pct": -24.1,
+    "loc_pct": -16.9,
+    "duration_pct": -24.6,
+    "cost_total_pct": 4.3,
+    "judge_correctness": 0,
+    "judge_simplicity": 0,
+    "judge_readability": -1,
+    "check_pass_rate": 0
+  }
+}
