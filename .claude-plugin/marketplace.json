@@ -15,6 +15,11 @@
       "name": "skill-bench",
       "source": "./skill-bench",
       "description": "Benchmark A/B de skills: qualidade de código, tokens, custo e tempo, com ranking visual"
+    },
+    {
+      "name": "agent-flow",
+      "source": "./agent-flow",
+      "description": "Times de agentes (UI/UX, frontend, backend, segurança, revisão) com workflow visual ao vivo"
     }
   ]
 }

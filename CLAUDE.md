@@ -9,6 +9,7 @@ Marketplace pessoal de plugins/skills do Claude Code (`skills-claude`), publicad
 - `.claude-plugin/marketplace.json` — manifesto do marketplace; toda skill nova precisa de uma entrada em `plugins[]`
 - `commit-pt/` — skill que gera commits em pt-BR no formato Conventional Commits (`plugin.json` + `SKILL.md`)
 - `skill-bench/` — skill que faz benchmark A/B de plugins (com/sem) via `claude -p` headless: qualidade (juiz LLM), tokens, custo, tempo e LOC; tarefas em `tasks/`, rubrica em `judge.md`, resultados em `bench-results/`
+- `agent-flow/` — skill que desenvolve com times de agentes (UI/UX, frontend, backend, segurança, revisão) e mostra cada time em um workflow visual ao vivo (tasks no terminal + dashboard Artifact)
 
 ## Comandos
 

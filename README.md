@@ -10,6 +10,7 @@ Dentro do Claude Code:
 /plugin marketplace add enzozon/skills_claude
 /plugin install commit-pt@skills-claude
 /plugin install skill-bench@skills-claude
+/plugin install agent-flow@skills-claude
 ```
 
 ## Skills
@@ -38,6 +39,15 @@ Benchmark A/B do impacto de uma skill/plugin no Claude Code: roda as mesmas tare
 - **Métricas por rodada:** tokens de saída, custo (USD), duração, turnos, LOC, self-check pass/fail e nota de um juiz LLM (haiku) usando a rubrica de `skill-bench/judge.md` (correção, simplicidade, legibilidade)
 - **Resultado:** medianas por braço, deltas percentuais e JSON completo salvo em `bench-results/`, com dashboard visual opcional
 - **Ranking:** qualidade nunca pode piorar; empate de qualidade é desempatado por tokens economizados
+
+### agent-flow
+
+Desenvolve com **times de agentes** e mostra cada time trabalhando como um workflow visual ao vivo.
+
+- Dispara com "visualiza os times", "mostra os agentes trabalhando", "desenvolve com os times", "roda o agent-flow"
+- Monta só os times que a tarefa pede — UI/UX, frontend, backend, segurança, revisão de código, testes — e executa cada um como subagente (independentes em paralelo, dependentes em sequência)
+- O progresso aparece em duas visões: painel de tasks no terminal e dashboard visual (Artifact) com um card por time (⏳ na fila / 🔷 trabalhando / ✅ concluído) e o diagrama do fluxo, atualizado a cada time concluído
+- Segurança e revisão rodam depois dos times de código, sobre o diff real
 
 ## Benchmark: ponytail (rodado com o skill-bench)
 
