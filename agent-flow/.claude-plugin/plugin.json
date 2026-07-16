@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
   "name": "agent-flow",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Desenvolve com times de agentes (UI/UX, frontend, backend, segurança, revisão) e mostra cada time trabalhando em um workflow visual ao vivo",
   "author": {
     "name": "Enzo Zon",
