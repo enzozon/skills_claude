@@ -12,9 +12,11 @@ transcripts em `~/.claude/projects`. Sem rede, sem credenciais — só leitura l
 
 1. Verifique se o servidor já está de pé: `curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:4127`.
    Se responder `200`, pule para o passo 3.
-2. Inicie o servidor em background (o script fica em `scripts/usage-server.mjs` dentro da
-   pasta desta skill — use o caminho absoluto da raiz do plugin):
-   `node <raiz-da-skill>/scripts/usage-server.mjs`
+2. Inicie o servidor como processo independente da sessão (tarefas de fundo do Claude Code
+   são encerradas ao fim do turno e derrubariam o painel). O script fica em
+   `scripts/usage-server.mjs` dentro da pasta desta skill — use o caminho absoluto:
+   - Windows (PowerShell): `Start-Process node -ArgumentList '"<raiz-da-skill>\scripts\usage-server.mjs"' -WindowStyle Hidden`
+   - macOS/Linux: `nohup node <raiz-da-skill>/scripts/usage-server.mjs >/dev/null 2>&1 &`
 3. Abra no navegador padrão: `start http://127.0.0.1:4127` (Windows) ou `open`/`xdg-open` em outros sistemas.
 4. Diga ao usuário em uma linha o que o painel mostra e lembre que os limites oficiais do
    plano (percentual da sessão/semana, igual à janela do Claude Desktop) ficam no comando
