@@ -5,26 +5,33 @@ description: Use quando o usuário pedir para ver o uso de tokens/créditos, "qu
 
 # usage-for
 
-Abre um painel local (http://127.0.0.1:4127) com o uso de tokens do Claude Code, lido dos
-transcripts em `~/.claude/projects`. Sem rede, sem credenciais — só leitura local.
+Mostra o uso de tokens do Claude Code lido dos transcripts em `~/.claude/projects`:
+relatório direto no terminal (como o `/usage`, porém com mais informação) e, se o usuário
+quiser, um painel local no navegador (http://127.0.0.1:4127). Sem rede, sem credenciais.
 
 ## Passos
 
-1. Verifique se o servidor já está de pé: `curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:4127`.
-   Se responder `200`, pule para o passo 3.
-2. Inicie o servidor como processo independente da sessão (tarefas de fundo do Claude Code
-   são encerradas ao fim do turno e derrubariam o painel). O script fica em
-   `scripts/usage-server.mjs` dentro da pasta desta skill — use o caminho absoluto:
+1. Rode o modo terminal e mostre a saída completa ao usuário:
+   `node <raiz-da-skill>/scripts/usage-server.mjs --cli`
+   Ele imprime: sessão vigente de 5h (tokens efetivos, % da sessão recorde, horário em que a
+   janela termina, quebra por modelo), últimos 7 dias, e os rankings por modelo, finalidade
+   e projeto.
+2. Se o usuário pedir o painel visual ("abre no navegador", "painel", "janela"):
+   verifique `curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:4127`; se não for `200`,
+   inicie o servidor como processo independente da sessão (tarefas de fundo do Claude Code
+   são encerradas ao fim do turno e derrubariam o painel):
    - Windows (PowerShell): `Start-Process node -ArgumentList '"<raiz-da-skill>\scripts\usage-server.mjs"' -WindowStyle Hidden`
    - macOS/Linux: `nohup node <raiz-da-skill>/scripts/usage-server.mjs >/dev/null 2>&1 &`
-3. Abra no navegador padrão: `start http://127.0.0.1:4127` (Windows) ou `open`/`xdg-open` em outros sistemas.
-4. Diga ao usuário em uma linha o que o painel mostra e lembre que os limites oficiais do
-   plano (percentual da sessão/semana, igual à janela do Claude Desktop) ficam no comando
-   nativo `/usage` — este painel mostra o destino dos tokens, que o `/usage` não mostra.
+   Depois abra: `start http://127.0.0.1:4127` (Windows) ou `open`/`xdg-open`.
+3. Lembre em uma linha: o percentual oficial do plano vem do `/usage` nativo; esta skill
+   mostra a sessão de 5h reconstruída localmente e o destino de cada token, que o `/usage`
+   não mostra.
 
-## O que o painel mostra
+## O que mostra (terminal e painel)
 
-- Filtros de período: Hoje / 7 dias / Tudo — e botão Atualizar (relê os transcripts)
+- Uso atual: sessão vigente de 5h (mesma janela que o plano usa), % da sessão recorde,
+  horário do fim da janela, quebra por modelo, e totais dos últimos 7 dias
+- Filtros de período no painel: Hoje / 7 dias / Tudo — e botão Atualizar
 - Totais: saída (gerados), entrada, cache lido, cache gravado
 - Por modelo (ex.: claude-fable-5, claude-haiku-4-5)
 - Por finalidade: chat principal, compactação de contexto, cada subagente com sua descrição
@@ -33,5 +40,6 @@ transcripts em `~/.claude/projects`. Sem rede, sem credenciais — só leitura l
 
 ## Limitações conhecidas
 
-- Não mostra o percentual oficial do limite do plano — isso é o `/usage` nativo.
+- O percentual oficial do limite do plano vem de endpoint autenticado — não mexemos em
+  credenciais; use o `/usage` nativo para isso. A sessão de 5h daqui é estimativa local.
 - A contagem cobre o Claude Code local; conversas do Claude Desktop/web não aparecem.
