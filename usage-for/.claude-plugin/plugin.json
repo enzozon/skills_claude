@@ -1,0 +1,13 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "usage-for",
+  "version": "0.1.0",
+  "description": "Painel local de uso de tokens: por modelo, finalidade (chat, subagentes, compactação) e projeto, com botão de atualizar",
+  "author": {
+    "name": "Enzo Zon",
+    "email": "enzozon7b@gmail.com"
+  },
+  "skills": [
+    "./"
+  ]
+}
