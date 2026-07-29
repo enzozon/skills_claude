@@ -1,0 +1,13 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "curriculo-vaga",
+  "version": "0.1.0",
+  "description": "Adapta seu currículo para uma vaga específica: lê a vaga, pesquisa a empresa, cruza com seu currículo base e seu GitHub",
+  "author": {
+    "name": "Enzo Zon",
+    "email": "enzozon7b@gmail.com"
+  },
+  "skills": [
+    "./"
+  ]
+}
