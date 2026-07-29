@@ -11,6 +11,7 @@ Dentro do Claude Code:
 /plugin install commit-pt@skills-claude
 /plugin install skill-bench@skills-claude
 /plugin install agent-flow@skills-claude
+/plugin install curriculo-vaga@skills-claude
 ```
 
 ## Skills
@@ -39,6 +40,17 @@ Benchmark A/B do impacto de uma skill/plugin no Claude Code: roda as mesmas tare
 - **Métricas por rodada:** tokens de saída, custo (USD), duração, turnos, LOC, self-check pass/fail e nota de um juiz LLM (haiku) usando a rubrica de `skill-bench/judge.md` (correção, simplicidade, legibilidade)
 - **Resultado:** medianas por braço, deltas percentuais e JSON completo salvo em `bench-results/`, com dashboard visual opcional
 - **Ranking:** qualidade nunca pode piorar; empate de qualidade é desempatado por tokens economizados
+
+### curriculo-vaga
+
+Adapta seu currículo para **uma vaga específica**: lê a vaga, pesquisa a empresa, cruza com seu currículo base e com os seus repositórios do GitHub, e gera um currículo sob medida.
+
+- Dispara ao colar o link/texto de uma vaga, ou com "adapta meu currículo para essa vaga", "vou me candidatar nessa"
+- **Configuração:** um `curriculo/perfil.md` no projeto aponta o currículo base, seu usuário do GitHub e o LinkedIn — criado na primeira execução
+- **Fontes:** a vaga (WebFetch), a empresa (WebSearch), seu currículo e a API pública do GitHub, de onde saem métricas reais dos READMEs
+- **Zero invenção:** só usa fatos do currículo ou dos repositórios públicos; reordena e reescreve, nunca cria experiência ou tecnologia — e corrige alegação que o repositório não sustenta, porque o recrutador clica no link
+- **Saída:** `vagas/<empresa>-<cargo>/curriculo.md` (formatação ATS-friendly) + um `notas.md` com o que foi priorizado e os gaps reais para a entrevista
+- Exporta em PDF de uma página via Chrome headless, com links clicáveis
 
 ### agent-flow
 
